@@ -31,8 +31,14 @@
 	<a class="w-12 text-magenta" href="/">
 		<TeagueMark />
 	</a>
-	<button class="w-12 text-magenta p-2 border border-white border-opacity-20 rounded-full">
-		<Menu />
+	<button
+		class="relative flex justify-center items-center w-10 h-10 text-magenta border border-white border-opacity-20 rounded-full"
+	>
+		<div class="relative w-5 h-[2px]">
+			<div class="absolute top-0 left-0 w-full h-full bg-white -translate-y-1.5" />
+			<div class="w-full h-full bg-white origin-right scale-x-75" />
+			<div class="absolute top-0 left-0 w-full h-full bg-white translate-y-1.5" />
+		</div>
 	</button>
 </nav>
 
