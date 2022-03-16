@@ -1,0 +1,29 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Din';
+        font-style: normal;
+        font-weight: 400;
+        src:  url('/fonts/DINPro.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: 'Din';
+        font-style: normal;
+        font-weight: 700;
+        src:  url('/fonts/DINPro-Bold.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: 'Chron';
+        font-style: normal;
+        font-weight: 700;
+        src:  url('/fonts/ChronicleDisplay-Black.woff2') format('woff2');
+    }
+}
+
+html {
+    @apply antialiased; 
+}
