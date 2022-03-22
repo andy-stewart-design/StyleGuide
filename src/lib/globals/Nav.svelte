@@ -1,5 +1,9 @@
 <script>
 	import TeagueMark from '$lib/svg/TeagueMark.svelte';
+	import TeagueLogotype from '$lib/svg/TeagueLogotype.svelte';
+
+	export let offset = 0;
+
 	const links = [
 		{
 			text: 'Work',
@@ -23,6 +27,9 @@
 		}
 	];
 	let isOpen = false;
+	let hasScrolled = false;
+
+	$: offset >= 200 ? (hasScrolled = true) : (hasScrolled = false);
 </script>
 
 <!-- Mobile Menu -->
@@ -30,6 +37,10 @@
 	class="fixed top-0 left-0 md:hidden w-screen h-screen pt-32 px-4 pointer-events-none z-50"
 	class:pointer-events-auto={isOpen}
 >
+	<div
+		class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 bg-black bg-opacity-0 border-b border-white border-opacity-0 px-4 transition-colors duration-500"
+		class:hasScrolled-bg={hasScrolled}
+	/>
 	<div
 		class="absolute top-0 left-0 w-full h-full bg-gray-900 origin-top scale-y-0 transition-transform duration-700 delay-700 ease-out-quart"
 		class:isOpen-bg={isOpen}
@@ -58,11 +69,18 @@
 </div>
 
 <nav
-	class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 bg-black bg-opacity-70 border-b border-white border-opacity-20 px-4 backdrop-blur-sm z-50 transition-colors duration-700 delay-1000 ease-out-quart"
+	class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 px-4 z-50"
 	class:isOpen-nav={isOpen}
 >
-	<a class="relative w-12 text-magenta" href="/">
-		<TeagueMark />
+	<a class="absolute top-0 left-0 flex items-center h-full px-4 text-magenta" href="/">
+		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
+			<TeagueMark />
+		</div>
+	</a>
+	<a class="relative text-magenta" href="/">
+		<div class="w-20 text-white transition-opacity duration-500" class:opacity-0={hasScrolled}>
+			<TeagueLogotype />
+		</div>
 	</a>
 	<button
 		class="relative flex justify-center items-center w-10 h-10 text-magenta border border-white border-opacity-20 rounded-full"
@@ -88,6 +106,18 @@
 </nav>
 
 <!-- Desktop Menu -->
+<div class="fixed top-8 left-0 items-center z-50 hidden md:flex">
+	<a class="flex justify-center w-20 text-magenta" href="/">
+		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
+			<TeagueMark />
+		</div>
+	</a>
+	<a class="relative text-white" href="/">
+		<div class="w-20 transition-opacity duration-500" class:opacity-0={hasScrolled}>
+			<TeagueLogotype />
+		</div>
+	</a>
+</div>
 <nav class="fixed top-8 right-0 mix-blend-difference z-50 hidden md:block">
 	<ul class="flex flex-col items-end">
 		{#each links as link}
@@ -128,5 +158,8 @@
 	}
 	.isOpen-iconBot {
 		@apply translate-y-0 rotate-45;
+	}
+	.hasScrolled-bg {
+		@apply bg-opacity-70 border-opacity-20 backdrop-blur-sm;
 	}
 </style>
