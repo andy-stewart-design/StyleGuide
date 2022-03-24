@@ -107,8 +107,8 @@
 
 <!-- Desktop Menu -->
 <div class="fixed top-8 left-0 items-center z-50 hidden md:flex">
-	<a class="flex justify-center w-20 text-magenta" href="/">
-		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
+	<a class="flex justify-center md:w-12 lg:w-20 text-magenta" href="/">
+		<div class=" md:w-8 lg:w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
 			<TeagueMark />
 		</div>
 	</a>

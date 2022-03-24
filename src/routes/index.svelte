@@ -6,7 +6,7 @@
 		alt="fpo"
 	/>
 </section>
-<section class="min-h-screen bg-white">
+<section class="min-h-screen bg-white px-4 md:px-12 lg:px-20">
 	<p>
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
 		provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
