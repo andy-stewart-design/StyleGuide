@@ -2,10 +2,15 @@
 	import '../app.css';
 	import Nav from '$lib/globals/Nav.svelte';
 
-	let y;
+	let currentY;
+	let previousY;
+	function compute() {
+		previousY = currentY;
+		currentY = window.scrollY;
+	}
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window on:scroll={compute} />
 
-<Nav offset={y} />
+<Nav {currentY} {previousY} />
 <slot />

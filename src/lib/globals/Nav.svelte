@@ -2,7 +2,8 @@
 	import TeagueMark from '$lib/svg/TeagueMark.svelte';
 	import TeagueLogotype from '$lib/svg/TeagueLogotype.svelte';
 
-	export let offset = 0;
+	export let currentY = 0;
+	export let previousY = 0;
 
 	const links = [
 		{
@@ -28,8 +29,10 @@
 	];
 	let isOpen = false;
 	let hasScrolled = false;
+	let hasScrolledMobile = false;
 
-	$: offset >= 200 ? (hasScrolled = true) : (hasScrolled = false);
+	$: currentY >= 200 && previousY <= currentY ? (hasScrolled = true) : (hasScrolled = false);
+	$: currentY >= 200 ? (hasScrolledMobile = true) : (hasScrolledMobile = false);
 </script>
 
 <!-- Mobile Menu -->
@@ -39,7 +42,7 @@
 >
 	<div
 		class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 bg-black bg-opacity-0 border-b border-white border-opacity-0 px-4 transition-colors duration-500"
-		class:hasScrolled-bg={hasScrolled}
+		class:hasScrolled-bg={hasScrolledMobile}
 	/>
 	<div
 		class="absolute top-0 left-0 w-full h-full bg-gray-900 origin-top scale-y-0 transition-transform duration-700 delay-700 ease-out-quart"
@@ -73,12 +76,15 @@
 	class:isOpen-nav={isOpen}
 >
 	<a class="absolute top-0 left-0 flex items-center h-full px-4 text-magenta" href="/">
-		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
+		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolledMobile}>
 			<TeagueMark />
 		</div>
 	</a>
 	<a class="relative text-magenta" href="/">
-		<div class="w-20 text-white transition-opacity duration-500" class:opacity-0={hasScrolled}>
+		<div
+			class="w-20 text-white transition-opacity duration-500"
+			class:opacity-0={hasScrolledMobile}
+		>
 			<TeagueLogotype />
 		</div>
 	</a>
@@ -119,7 +125,7 @@
 	</a>
 </div>
 <nav class="fixed top-8 right-0 mix-blend-difference z-50 hidden md:block">
-	<ul class="flex flex-col items-end">
+	<ul class="nav-links flex flex-col items-end">
 		{#each links as link}
 			<li class="relative mb-2 border-r-8 border-white">
 				<a class="group" href={link.href}>
@@ -127,7 +133,8 @@
 						class="absolute top-0 right-0 h-full w-full bg-white origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out-quart"
 					/>
 					<p
-						class="relative font-semibold text-white text-sm uppercase text-right py-1.5 pr-2 pl-4 mix-blend-difference"
+						class="relative font-semibold text-white text-sm uppercase text-right py-1.5 pr-2 pl-4 mix-blend-difference transition-opacity duration-500"
+						class:opacity-0={hasScrolled}
 					>
 						{link.text}
 					</p>
@@ -161,5 +168,9 @@
 	}
 	.hasScrolled-bg {
 		@apply bg-opacity-70 border-opacity-20 backdrop-blur-sm;
+	}
+
+	.nav-links:hover p {
+		@apply opacity-100;
 	}
 </style>
