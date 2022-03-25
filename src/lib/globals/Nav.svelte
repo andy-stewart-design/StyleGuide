@@ -124,8 +124,8 @@
 		</div>
 	</a>
 </div>
-<nav class="fixed top-8 right-0 mix-blend-difference z-50 hidden md:block">
-	<ul class="nav-links flex flex-col items-end">
+<nav class="nav-links fixed top-0 pt-8 pl-4 right-0 mix-blend-difference z-50 hidden md:block">
+	<ul class="flex flex-col items-end">
 		{#each links as link}
 			<li class="relative mb-2 border-r-8 border-white">
 				<a class="group" href={link.href}>
