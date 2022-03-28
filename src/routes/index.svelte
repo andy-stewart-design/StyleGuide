@@ -16,7 +16,6 @@
 	<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black opacity-30 z-10" />
 	<div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-black opacity-30 z-10" />
 	<img class="w-full h-full object-cover opacity-50" src={src[i]} alt="fpo" />
-	<p class="relative z-50">{i}</p>
 </section>
 <section class="min-h-screen bg-white px-4 md:px-12 lg:px-20">
 	<p>

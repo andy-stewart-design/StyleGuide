@@ -27,12 +27,13 @@
 			href: '/'
 		}
 	];
+
 	let isOpen = false;
 	let hasScrolled = false;
-	let hasScrolledMobile = false;
+	let down = true;
 
-	$: currentY >= 200 && previousY <= currentY ? (hasScrolled = true) : (hasScrolled = false);
-	$: currentY >= 200 ? (hasScrolledMobile = true) : (hasScrolledMobile = false);
+	$: currentY >= 200 ? (hasScrolled = true) : (hasScrolled = false);
+	$: previousY <= currentY ? (down = true) : (down = false);
 </script>
 
 <!-- Mobile Menu -->
@@ -42,7 +43,7 @@
 >
 	<div
 		class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 bg-black bg-opacity-0 border-b border-white border-opacity-0 px-4 transition-colors duration-500"
-		class:hasScrolled-bg={hasScrolledMobile}
+		class:hasScrolled-bg={hasScrolled}
 	/>
 	<div
 		class="absolute top-0 left-0 w-full h-full bg-gray-900 origin-top scale-y-0 transition-transform duration-700 delay-700 ease-out-quart"
@@ -76,15 +77,12 @@
 	class:isOpen-nav={isOpen}
 >
 	<a class="absolute top-0 left-0 flex items-center h-full px-4 text-magenta" href="/">
-		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolledMobile}>
+		<div class="w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
 			<TeagueMark />
 		</div>
 	</a>
 	<a class="relative text-magenta" href="/">
-		<div
-			class="w-20 text-white transition-opacity duration-500"
-			class:opacity-0={hasScrolledMobile}
-		>
+		<div class="w-20 text-white transition-opacity duration-500" class:opacity-0={hasScrolled}>
 			<TeagueLogotype />
 		</div>
 	</a>
@@ -134,7 +132,7 @@
 					/>
 					<p
 						class="relative font-semibold text-white text-sm uppercase text-right py-1.5 pr-2 pl-4 mix-blend-difference transition-opacity duration-500"
-						class:opacity-0={hasScrolled}
+						class:opacity-0={hasScrolled && down}
 					>
 						{link.text}
 					</p>
