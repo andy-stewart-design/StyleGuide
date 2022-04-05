@@ -12,10 +12,14 @@
 	}
 </script>
 
-<section class="relative h-screen bg-black" on:click={inc}>
+<section class="relative h-screen bg-black">
 	<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black opacity-30 z-10" />
 	<div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-black opacity-30 z-10" />
 	<img class="w-full h-full object-cover opacity-50" src={src[i]} alt="fpo" />
+	<button
+		class="absolute bottom-12 left-4 md:left-12 lg:left-20 bg-white font-bold font-lg rounded-full py-4 px-6 transition-colors duration-300 hover:bg-magenta hover:text-white"
+		on:click={inc}>Swap Image</button
+	>
 </section>
 <section class="min-h-screen bg-white py-28 px-4 md:px-12 lg:px-20">
 	<div class="grid gap-y-4 max-w-4xl m-auto">
