@@ -17,11 +17,29 @@
 	<div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-black opacity-30 z-10" />
 	<img class="w-full h-full object-cover opacity-50" src={src[i]} alt="fpo" />
 </section>
-<section class="min-h-screen bg-white px-4 md:px-12 lg:px-20">
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
-		provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
-		similique debitis fugiat possimus recusandae.
-	</p>
+<section class="min-h-screen bg-white py-28 px-4 md:px-12 lg:px-20">
+	<div class="grid gap-y-4 max-w-4xl m-auto">
+		<h2 class="font-serif font-bold text-6xl md:text-8xl tracking-[-1px] text-center">
+			This is a headline
+		</h2>
+		<p class="text-base md:text-lg leading-snug text-center">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
+			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
+			adipisicing elit.
+		</p>
+	</div>
 </section>
-<section class="min-h-screen bg-black" />
+<section class="min-h-screen bg-black text-white py-28 px-4 md:px-12 lg:px-20">
+	<div class="grid gap-y-4 max-w-4xl m-auto">
+		<h2 class="font-serif font-bold text-6xl md:text-8xl tracking-[-1px] text-center">
+			This is a headline
+		</h2>
+		<p class="text-base md:text-lg leading-snug text-center">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
+			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
+			adipisicing elit.
+		</p>
+	</div>
+</section>
