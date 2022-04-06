@@ -8,6 +8,7 @@ const config = {
 			'white': '#ffffff',
 			'black': '#000000',
 			'magenta': '#FF0096',
+			'blue': '#2D00FF',
 			'gray': {
 				'900': '#181818'
 			}
@@ -16,6 +17,7 @@ const config = {
 			'sans': ['Din', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 			],
 			'serif': ['Chron', 'ui-serif', 'Georgia'],
+			'text': ['Chron Text', 'ui-serif', 'Georgia'],
 		},
 		extend: {
 			borderWidth: {

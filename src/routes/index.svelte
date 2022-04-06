@@ -36,24 +36,58 @@
 	>
 </section>
 <section class="min-h-screen bg-white py-28 px-4 md:px-12 lg:px-20">
-	<div class="grid gap-y-4 max-w-4xl m-auto">
-		<h2 class="font-serif font-bold text-6xl md:text-8xl tracking-[-1px] text-center">
-			This is a headline
+	<div class="max-w-3xl m-auto">
+		<h2 class="font-serif font-bold text-5xl md:text-6xl tracking-[-1px] text-left pb-4">
+			This is a big headline
 		</h2>
-		<p class="text-base md:text-lg leading-snug text-center">
+		<p class="font-text text-base md:text-3xl leading-snug text-left pb-6">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero, tempora reiciendis.
+		</p>
+		<p class="font-sans text-base md:text-lg leading-snug text-left pb-6">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
 			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
 			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
-			adipisicing elit.
+			adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi
+			quisquam, nam iusto provident deserunt, libero, tempora reiciendis consectetur velit commodi
+			neque sequi minus similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet
+			consectetur adipisicing elit.
+		</p>
+		<blockquote
+			class="block float-right font-serif font-bold text-[30px] leading-[1.1] tracking-[-.5px] text-magenta w-1/2 translate-x-8 mb-2"
+		>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero.
+		</blockquote>
+		<p class="font-sans text-base md:text-lg leading-snug text-left mb-6">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
+			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
+			adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi
+			quisquam, nam iusto provident deserunt, libero, tempora reiciendis consectetur velit commodi
+			neque sequi minus similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet
+			consectetur adipisicing elit.
+		</p>
+		<h3 class="font-serif font-bold text-5xl md:text-[38px] tracking-[-1px] text-left pb-4">
+			This is a smaller headline
+		</h3>
+		<p class="font-sans text-base md:text-lg leading-snug text-left mb-6">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
+			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
+			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
+			adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi
+			quisquam, nam iusto provident deserunt, libero, tempora reiciendis consectetur velit commodi
+			neque sequi minus similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet
+			consectetur adipisicing elit.
 		</p>
 	</div>
 </section>
 <section class="min-h-screen bg-black text-white py-28 px-4 md:px-12 lg:px-20">
 	<div class="grid gap-y-4 max-w-4xl m-auto">
-		<h2 class="font-serif font-bold text-6xl md:text-8xl tracking-[-1px] text-center">
+		<h2 class="font-serif font-bold text-6xl md:text-7xl tracking-[-1px] text-left">
 			This is a headline
 		</h2>
-		<p class="text-base md:text-lg leading-snug text-center">
+		<p class="font-text text-base md:text-xl leading-snug text-left">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem quasi quisquam, nam iusto
 			provident deserunt, libero, tempora reiciendis consectetur velit commodi neque sequi minus
 			similique debitis fugiat possimus recusandae. Lorem ipsum dolor sit amet consectetur
@@ -61,3 +95,27 @@
 		</p>
 	</div>
 </section>
+
+<!-- <style>
+	blockquote {
+		float: right;
+		width: 50%;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+		-webkit-transform: translateX(4rem);
+		transform: translateX(4rem);
+		margin-top: 0.25rem;
+		padding-top: 0;
+		position: relative;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: #ff0096;
+		font-size: 1.75rem;
+		font-weight: 800;
+		line-height: 1.25;
+		text-transform: none;
+		letter-spacing: -0.025em;
+	}
+</style> -->
