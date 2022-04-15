@@ -31,23 +31,24 @@
 	let isOpen = false;
 	let hasScrolled = false;
 	let down = true;
+	let dark = true;
 
 	$: currentY >= 200 ? (hasScrolled = true) : (hasScrolled = false);
 	$: previousY <= currentY ? (down = true) : (down = false);
 </script>
 
-<!-- Mobile Menu -->
-<div
-	class="fixed top-0 left-0 md:hidden w-screen h-screen pt-32 px-4 pointer-events-none z-50"
+<!-- Offscreen nav -->
+<nav
+	class="fixed top-0 left-0 w-screen h-screen pt-32 px-4 pointer-events-none z-50"
 	class:pointer-events-auto={isOpen}
 >
 	<div
-		class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 bg-black bg-opacity-0 border-b border-white border-opacity-0 px-4 transition-colors duration-500"
-		class:hasScrolled-bg={hasScrolled}
+		class="absolute top-0 left-0 w-full h-full bg-black border-b border-white border-opacity-20 origin-top -translate-y-full transition-transform duration-700 delay-700 ease-out-quart mix"
+		class:isOpen-offscreen={isOpen}
 	/>
 	<div
-		class="absolute top-0 left-0 w-full h-full bg-gray-900 origin-top scale-y-0 transition-transform duration-700 delay-700 ease-out-quart"
-		class:isOpen-bg={isOpen}
+		class="fixed top-0 left-0 flex justify-between items-center w-screen h-16 bg-black bg-opacity-0 border-b border-white border-opacity-0 px-4 transition-colors duration-500"
+		class:hasScrolled-bg={hasScrolled}
 	/>
 	<ul class="flex flex-col items-start">
 		{#each links as link, i}
@@ -70,10 +71,19 @@
 			</div>
 		{/each}
 	</ul>
-</div>
-
-<nav
-	class="fixed top-0 left-0 md:hidden flex justify-between items-center w-screen h-16 px-4 z-50"
+	<!-- social icons -->
+	<div
+		class="absolute bottom-8 left-4 flex gap-x-4 opacity-0 transition-opacity duration-500 delay-0"
+		class:isOpen-social={isOpen}
+	>
+		<div class="w-8 h-8 bg-white rounded-full" />
+		<div class="w-8 h-8 bg-white rounded-full" />
+		<div class="w-8 h-8 bg-white rounded-full" />
+	</div>
+</nav>
+<!-- logo and nav trigger -->
+<div
+	class="fixed top-0 left-0 flex justify-between items-center w-screen h-16 px-4 z-50"
 	class:isOpen-nav={isOpen}
 >
 	<a class="absolute top-0 left-0 flex items-center h-full px-4 text-magenta" href="/">
@@ -107,49 +117,11 @@
 			/>
 		</div>
 	</button>
-</nav>
-
-<!-- Desktop Menu -->
-<div class="fixed top-8 left-0 items-center z-50 hidden md:flex">
-	<a class="flex justify-center md:w-12 lg:w-20 text-magenta" href="/">
-		<div class=" md:w-8 lg:w-12 transition-opacity duration-500" class:opacity-0={!hasScrolled}>
-			<TeagueMark />
-		</div>
-	</a>
-	<a class="relative text-white" href="/">
-		<div class="w-20 transition-opacity duration-500" class:opacity-0={hasScrolled}>
-			<TeagueLogotype />
-		</div>
-	</a>
 </div>
-<nav
-	class="nav-links fixed top-0 pt-8 pl-4 right-0 mix-blend-difference grayscale z-50 hidden md:block"
->
-	<ul class="flex flex-col items-end">
-		{#each links as link}
-			<li class="relative mb-2 border-r-8 border-white">
-				<a class="group" href={link.href}>
-					<div
-						class="absolute top-0 right-0 h-full w-full bg-white origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out-quart"
-					/>
-					<p
-						class="relative font-semibold text-white text-sm uppercase text-right py-1.5 pr-2 pl-4 mix-blend-difference transition-opacity duration-500"
-						class:opacity-0={hasScrolled && down}
-					>
-						{link.text}
-					</p>
-				</a>
-			</li>
-		{/each}
-	</ul>
-</nav>
 
 <style>
-	.isOpen-nav {
-		@apply bg-gray-900 delay-0;
-	}
-	.isOpen-bg {
-		@apply scale-y-100 delay-0;
+	.isOpen-offscreen {
+		@apply translate-y-0 delay-0;
 	}
 	.isOpen-border {
 		@apply scale-x-100;
@@ -166,11 +138,10 @@
 	.isOpen-iconBot {
 		@apply translate-y-0 rotate-45;
 	}
+	.isOpen-social {
+		@apply opacity-100 delay-700;
+	}
 	.hasScrolled-bg {
 		@apply bg-opacity-70 border-opacity-20 backdrop-blur-sm;
-	}
-
-	.nav-links:hover p {
-		@apply opacity-100;
 	}
 </style>

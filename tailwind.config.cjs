@@ -25,6 +25,10 @@ const config = {
 				'16': '16px',
 				'20': '20px',
 			},
+			scale: {
+				'5': '.05',
+				'10': '.1',
+			},
 			transitionDelay: {
 				'0': '0ms',
 			},
